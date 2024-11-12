@@ -1,11 +1,11 @@
 import axios from "axios";
-const url = "http://localhost:3001/persons"
+const url = "/api/persons"
 
 
 const getAll = () => {
 
     return axios.get(url).then((response) => {
-        console.log(response)
+        console.log('Get operation response is ', response)
         return response.data
 
 
@@ -13,18 +13,18 @@ const getAll = () => {
 }
 const create = (personObject) => {
     return axios.post(url, personObject).then(response => {
-        console.log(response.data)
-        return response.data
+        console.log('Post request has the response data as ',response.config.data)
+        return response.config.data
     }
     )
 
 }
 const deleteEntry = (id) => {
     let deleteUrl = `${url}/${id}`
-    console.log(deleteUrl)
+    console.log('Delete url is', deleteUrl)
     return axios.delete(deleteUrl).then(response => {
-        console.log(response)
-        console.log(response.data)
+        console.log('Delete operation response is ', response)
+        console.log('Delete operation response data is ',response.data)
         return response.data
     }
     )
@@ -33,7 +33,7 @@ const deleteEntry = (id) => {
 const updateNumber = (id, newPersonObj) => {
 
     return axios.put(`${url}/${id}`, newPersonObj).then(res => {
-        console.log(res.data)
+        console.log('Update operation res data is ',res.data)
         return res.data
     }
     )

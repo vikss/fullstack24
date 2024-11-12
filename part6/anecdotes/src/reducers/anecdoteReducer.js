@@ -28,29 +28,24 @@ const anecdoteReducer = (state = anecdotes, action) => {
                     return 1
                 return 0
 
-
-
             })
-            case "ADD_ANECDOTE":
-                let obj = {quote: action.payload.quote, vote: action.payload.vote, id: action.payload.id
-                }
-                console.log(obj)
-                return state.concat(obj)
-
-
-
+        case "ADD_ANECDOTE":
+            let obj = {
+                quote: action.payload.quote, vote: action.payload.vote, id: action.payload.id
+            }
+            console.log(obj)
+            return state.concat(obj)
 
     }
     return [...state]
 
-
 }
-export const addAnecdote=(obj)=>{
+export const addAnecdote = (obj) => {
 
     return {
 
         type: "ADD_ANECDOTE",
-        payload:{
+        payload: {
             quote: obj.quote,
             vote: obj.vote,
             id: obj.id
